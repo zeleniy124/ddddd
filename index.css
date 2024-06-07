@@ -1,0 +1,250 @@
+@font-face {
+    font-family: 'coockie';
+    src: url('Fortune Cookies.otf') format('opentype');
+}
+header {
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: auto; /* Or specify a height */
+}
+header, header a, header button {
+    overflow: visible;
+    padding: 0;
+    margin: 0;
+}
+.fc {
+    position: relative;
+    z-index: 2; /* Higher than header */
+}
+
+header {
+    position: relative;
+    z-index: 1;
+}
+.social {
+    background-color: red;
+    color: yellow;
+    border-radius: 8px;
+    width: 400px;
+    height: 100px !important;
+    font-size: 30px;
+    font-family: 'Bomb', sans-serif;
+    text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
+    transition: transform 0.1s ease; /* Smooth transition for press effect */
+}
+
+.social:active {
+    transform: scale(0.95); /* Slightly scale down button when pressed */
+    color: yellow; /* Darken the button color to indicate it's pressed */
+}
+
+* {
+	border: 0;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+body, button {
+     background-color: red !important;
+    color: yellow !important;
+	line-height: 1.5;
+}
+
+button {
+	cursor: pointer;
+}
+/* Cookie */
+.fc {
+	background: transparent;
+	display: block;
+	margin: 4.5em auto 0 auto;
+	position: relative;
+	width: 20em;
+	height: 17em;
+}
+.fc:focus {
+	outline: transparent;
+}
+.fc-part, .fc-crumbs, .fc-crumb, .fc-fortune {
+	position: absolute;
+	top: 0;
+}
+.fc-part, .fc-crumb {
+
+}
+.fc-part {
+	width: 28em;
+	height: 28em;
+	z-index: 2;
+}
+.left {
+    position: absolute;
+    left: 50%;  /* Adjust this value as needed */
+    transform: rotate(0deg);  /* Remove or adjust rotation if necessary */
+    transform-origin: center center;  /* Center the transformation origin */
+    background-image: url('toppart-pill.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.right {
+    position: absolute;
+    right: 50%;  /* Adjust this value as needed */
+    transform: rotate(0deg);  /* Remove or adjust rotation if necessary */
+    transform-origin: center center;  /* Center the transformation origin */
+    background-image: url('bottompart-pill.png');
+    background-size: cover;
+    background-position: center;
+}
+.fc-crumbs {
+	left: calc(50% - 0.4em);
+	width: 0.8em;
+	height: 6em;
+	z-index: 1;
+}
+.fc-crumb {
+	border-radius: 50%;
+	width: 0.5em;
+	height: 0.5em;
+}
+.fc-crumb:nth-child(1) {
+	top: 4%;
+	left: 15%;
+}
+.fc-crumb:nth-child(2) {
+	top: 20%;
+	right: 15%;
+}
+.fc-crumb:nth-child(3) {
+	top: 30%;
+	left: 25%;
+}
+.fc-crumb:nth-child(4) {
+	top: 45%;
+	right: 25%;
+}
+.fc-crumb:nth-child(5) {
+	top: 55%;
+	left: 5%;
+}
+.fc-crumb:nth-child(6) {
+	top: 65%;
+	right: 5%;
+}
+.fc-crumb:nth-child(7) {
+	top: 75%;
+	left: 30%;
+}
+.fc-crumb:nth-child(8) {
+	top: 90%;
+	right: 35%;
+}
+
+/* Fortune */
+.fc-fortune {
+    color: rgb(134 239 172);
+	background-color: black;
+	border: 5px solid rgb(134 239 172);
+    border-radius: 8px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
+	width: 20em;
+	height: 10em;
+	left: 0;
+    top: 30%;  /* Adjusted to lower the position */
+    font-size: 18px;
+	transform: scale(0,1);
+	transform-origin: 45% 32%;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.fc-fortune-text {
+}
+.fc-lucky-numbers {
+}
+
+/* Animation States */
+.spawned {
+	animation: popIn 0.3s linear;
+}
+.opened {
+	width: 26em;
+	height: 6em;
+}
+.opened .left {
+	animation: breakLeft 1s ease-in forwards;
+}
+.opened .right {
+	animation: breakRight 1s ease-in forwards;
+}
+.opened .fc-crumbs {
+	animation: fallOut 1s ease-in forwards;
+}
+.opened .fc-fortune {
+	animation: foldOut 1s ease-in forwards;
+}
+
+/* Animations */
+@keyframes popIn {
+	from {
+		transform: scale(0);
+	}
+	75% {
+		transform: scale(1.1);
+	}
+	to {
+		transform: scale(1);
+	}
+}
+@keyframes breakLeft {
+    from {
+        transform: translateX(0) rotate(0deg);
+    }
+    30%, 40% {
+        transform: translateX(0) rotate(30deg);
+    }
+    70%, 80% {
+        opacity: 1;
+        transform: translateX(14em) rotate(25deg);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(14em) rotate(25deg);
+    }
+}
+
+@keyframes breakRight {
+    from {
+        transform: translateX(0) rotate(0deg);
+    }
+    30%, 40% {
+        transform: translateX(0) rotate(-30deg);
+    }
+    70%, 80% {
+        opacity: 1;
+        transform: translateX(-14em) rotate(-25deg);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(-14em) rotate(-25deg);
+    }
+}
+
+@keyframes foldOut {
+	from {
+		transform: scale(0.23,0.7);
+	}
+	30%, 40% {
+		transform: scale(0.5,0.7);
+	}
+	69% {
+		transform: scale(1,0.7);
+	}
+	74%, to {
+		transform: scale(1,1);
+	}
+}
