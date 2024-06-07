@@ -145,8 +145,8 @@ button {
 /* Fortune */
 .fc-fortune {
     color: rgb(134 239 172);
-	background-color: black;
-	border: 5px solid rgb(134 239 172);
+	background-color: red;
+	border: 5px solid yellow;
     border-radius: 8px;
 	display: flex;
 	flex-direction: column;
